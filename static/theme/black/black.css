@@ -1,0 +1,213 @@
+/* 外层部分 */
+::-webkit-scrollbar-thumb,.scrollbar div::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: initial;
+  -webkit-box-shadow: initial;
+  background: #5e6e86;
+}
+#index-layout .el-header.top {
+  background: url("/static/theme/black/imgs/top-bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+#index-layout .el-header.top .infos {
+  color: #597ecf;
+}
+
+#index-layout .el-header.top .infos .users .icon-user {
+  color: #6289dc;
+}
+
+#index-layout .el-header.top .infos a span {
+  background-color: #153d83;
+  color: #6087da;
+}
+
+#index-layout .el-container.bottom .el-aside {
+  background: url("/static/theme/black/imgs/left-bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+#index-layout .el-container.bottom .el-aside .el-menu {
+  background-color: rgba(45, 57, 79, 0.35);
+}
+
+#index-layout .el-container.bottom .el-aside .el-menu .el-submenu__title {
+  color: #7dfffd;
+}
+
+#index-layout .el-container.bottom .el-aside .el-menu .el-submenu__title:hover,
+#index-layout .el-container.bottom .el-aside .el-menu .el-submenu__title:focus,
+#index-layout .el-container.bottom .el-aside .el-menu .el-submenu.is-opened .el-submenu__title {
+  background: url("/static/theme/black/imgs/side-bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+#index-layout .el-container.bottom .el-aside .el-menu .el-submenu__title i {
+  color: #7dfffd;
+}
+
+#index-layout .el-container.bottom .el-aside .el-menu ul .el-menu-item {
+  color: #fff;
+}
+
+#index-layout .el-container.bottom .el-aside .el-menu ul .el-menu-item:hover,
+#index-layout .el-container.bottom .el-aside .el-menu ul .el-menu-item:focus,
+#index-layout .el-container.bottom .el-aside .el-menu ul .el-menu-item.is-active{
+  color: #fff000;
+  background: url("/static/theme/black/imgs/second-menu-bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+#index-layout .el-container.bottom .el-aside .work {
+  background: url("/static/theme/black/imgs/select-dot.png") no-repeat;
+  background-size: contain;
+}
+
+#index-layout .el-container.bottom .el-aside .el-tabs__header {
+  background: url("/static/theme/black/imgs/subnav.png") no-repeat;
+  background-size: cover;
+}
+
+#index-layout .el-container.bottom .el-aside .el-tabs__header .el-tabs__item {
+  color: #fff;
+}
+
+#index-layout .el-container.bottom .el-aside .el-tabs__header .el-tabs__item.is-active {
+  color: #fff000;
+  background: url("/static/theme/black/imgs/hover.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+/* 面包屑部分 */
+#index-layout .layout-container .bottom .el-main .el-breadcrumb {
+  background: #2d394f;
+}
+#index-layout .layout-container .bottom .el-main .el-breadcrumb .el-breadcrumb__inner a:hover,#index-layout .layout-container .bottom .el-main .el-breadcrumb .el-breadcrumb__inner.is-link:hover {
+  color: #fff000;
+}
+#index-layout .layout-container .bottom .el-main .el-breadcrumb .el-breadcrumb__item.active .el-breadcrumb__inner {
+  color: #fff000;
+}
+#index-layout .layout-container .bottom .el-main .el-breadcrumb .el-breadcrumb__inner {
+  color: #9dbcff;
+}
+
+/* 主内容标题部分 */
+#index-layout .layout-container .bottom #page > .table > h1 {
+  background: transparent;
+  border-top: 3px solid #000;
+  margin-top: 2px;
+  border-bottom: 1px solid #337ab7;
+  color: #fff;
+  position: relative;
+}
+#index-layout .layout-container .bottom #page > .table > h1:before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 5px;
+  width: 6px;
+  height: 20px;
+  background: linear-gradient(to top,#07a844,#3fedf8);
+}
+/* 按钮组部分 */
+#index-layout .layout-container .bottom #page > .table .primary {
+  background: linear-gradient(to top,#1680e7,#5ccbff);
+  border-color: #4ea8fe;
+  border-radius: 15px;
+}
+#index-layout .layout-container .bottom #page > .table .success {
+  background: linear-gradient(to top,#07a844,#5cc7ff);
+  border-color: #2bdb77;
+  border-radius: 15px;
+}
+#index-layout .layout-container .bottom #page > .table .warning {
+  background: linear-gradient(to top,#fa4444,#ff8870);
+  border-color: #ff8870;
+  border-radius: 15px;
+}
+#index-layout .layout-container .bottom #page > .table .info {
+  background-color: #1680e7;
+  border-color: #4ea8fe;
+  border-radius: 15px;
+}
+/* 主内容页面---------表格部分 */
+#index-layout .layout-container .bottom #page {
+  background: url('/static/theme/black/imgs/gird.png') no-repeat;
+  background-size: 100% 100%;
+  background-position-y: bottom;
+  background-color: rgba(17,47,113,1);
+}
+#index-layout .layout-container .bottom #page .table .el-table__header thead > tr{
+  background: url('/static/theme/black/imgs/th.png') repeat-x;
+  color: #fff;
+}
+#index-layout .layout-container .bottom .el-main > .table .el-table tr {
+  background-color: rgb(41,52,73);
+}
+#index-layout .layout-container .bottom .el-main > .table .el-table--enable-row-hover .el-table__body tr:hover {
+  background: url('/static/theme/black/imgs/tr-hover.png') no-repeat;
+  background-size: 100% 100%;
+}
+#index-layout .layout-container .bottom .el-main > .table .el-table--enable-row-hover .el-table__body tr:hover>td {
+  background-color: transparent;
+}
+#index-layout .layout-container .bottom .el-main > .table .el-pagination__jump,#index-layout .layout-container .bottom .el-main > .table .el-pagination__total {
+  color: #6de1ea;
+}
+#index-layout .layout-container .bottom .el-main > .table .el-pagination .el-input__inner {
+  background-color: transparent;
+  color: #fff000;
+  border-color: #4ea8fe;
+}
+#index-layout .layout-container .bottom .el-main > .table .el-table tr.el-table__row--striped.el-table__row {
+  background-color: rgb(46,60,91);
+}
+#index-layout .layout-container .bottom .el-main > .table .el-pagination .btn-prev,#index-layout .layout-container .bottom .el-main > .table .el-pagination .el-pager,#index-layout .layout-container .bottom .el-main > .table .el-pagination .btn-next {
+  background-color: transparent;
+}
+#index-layout .layout-container .bottom .el-main > .table .el-pagination .el-pager li {
+  background-color: transparent;
+  color: #6de1ea;
+  margin: 0 1px;
+}
+#index-layout .layout-container .bottom .el-main > .table .el-pagination .el-pager li.active {
+  background: url('/static/theme/black/imgs/pagiation.png') no-repeat;
+  background-size: 100% 100%;
+  color: #fff000;
+  margin: 0 1px;
+}
+.layout-container .bottom .el-main > .table .el-pagination .btn-prev,.layout-container .bottom .el-main > .table .el-pagination .btn-next {
+  color: #c0c4cc;
+}
+#index-layout .layout-container .bottom .el-main > .table .el-pagination button:disabled,#index-layout .layout-container .bottom .el-main > .table .el-pagination button:disabled {
+  color: transparent;
+}
+/* 根据主题 变化的下拉选择框 开始 */
+.themeSelect.el-select-dropdown .el-pagination button {
+  color: #409EFF;
+}
+.themeSelect.el-select-dropdown {
+  background-color: rgba(45, 57, 79,.9);
+  border: 1px solid #907878;
+}
+.themeSelect.el-select-dropdown li {
+  color: #fff;
+}
+.themeSelect.el-select-dropdown li.el-select-dropdown__item.selected {
+  color: #fff000;
+}
+.themeSelect.el-select-dropdown .el-select-dropdown__item {
+  background-color: transparent;
+}
+.themeSelect.el-select-dropdown .el-select-dropdown__item.hover, .themeSelect.el-select-dropdown__item:hover {
+  background-color: transparent!important;
+  color: #fff000;
+}
+.themeSelect.el-select .el-input__inner {
+  background-color: transparent;
+  color: #fff000;
+  border-color: #4ea8fe;
+}
+/* 根据主题 变化的下拉选择框 结束 */
