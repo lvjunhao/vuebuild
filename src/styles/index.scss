@@ -5,7 +5,7 @@
     background-size: 100% 100%;
 }
 #index-layout {
-    font-size: 14px;
+    font-size: 14px;/*no*/
     .layout-container {
         .top {
             position: relative;
@@ -76,12 +76,11 @@
                     font-size: 18px;/*no*/
                     cursor: pointer;
                     color: #fff;
-                    z-index: 99;
                 }
             }
         }
         .bottom {
-            .el-aside {
+            #mainSide.el-aside {
                 position: relative;
                 padding-left: 5px;
                 width: 230px!important;
@@ -174,7 +173,7 @@
                     position: absolute;
                     right: -15px;
                     width: 20px;
-                    z-index: 9999;
+                    z-index: 99;
                     top: 50%;
                     transform: translateY(-50%);
                     cursor: pointer;
@@ -185,7 +184,7 @@
                 }
             }
             // 主内容区域
-            .el-main {
+            #page.el-main {
                 padding-top: 0;
                 padding-left: 15px;
                 padding-right: 15px;
@@ -358,30 +357,7 @@
         top: 5px;
     }
 }
-
-// 重置element-ui全局样式
-.el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
-    font-weight: normal;
-    color: initial;
-    cursor: pointer;
-}
-::-webkit-scrollbar {
-    width: 5px;
-    border-radius: 10px;
-    background-color: #184f96;
-}
-.table .el-table::before {
-    content:unset;
-}
-.table .el-table {
-    border: 1px solid #098fbb;
-}
-.el-scrollbar__wrap{
-    overflow: hidden;
-}
-#app .el-submenu__icon-arrow {
-    transform: rotateZ(-90deg);
-}
-#app .el-submenu.is-opened>.el-submenu__title .el-submenu__icon-arrow {
-    transform: rotateZ(0deg);
+.item-transition {
+    display: block;
+    padding:1px 0;
 }

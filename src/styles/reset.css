@@ -49,3 +49,53 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.clearfix:after {
+    display: block;
+    content:"";
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both;
+}
+
+/* Element-ui  默认样式修改 */
+.el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: normal;
+    color: initial;
+    cursor: pointer;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 10px;
+    background-color: #184f96;
+}
+.table .el-table::before {
+    content:unset;
+}
+.table .el-table {
+    border: 1px solid #098fbb;
+}
+.el-scrollbar__wrap{
+    overflow: hidden;
+}
+#siderBar .el-submenu.is-opened>.el-submenu__title .el-submenu__icon-arrow {
+    transform: rotateZ(0deg);
+}
+#siderBar .el-submenu__icon-arrow {
+    transform: rotateZ(-90deg);
+}
+.el-menu-item, .el-submenu__title {
+    height: 30px;
+    line-height: 30px;
+}
+.el-menu-item-group__title {
+    display: none;
+}
+.el-menu {
+    border-right: none;
+}
+
+/* 防止element-ui的样式字体颜色被全局污染 */
+[class^='el'] span,label[class^='el'],i[class^='el'] {
+    color: unset;
+}

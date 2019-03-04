@@ -1,11 +1,13 @@
-import Vue from 'Vue'
-import Vuex from 'Vuex'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-// import xxx from './modules/xx.js'
+import formConfigs from './modules/layouts/formConfig.js'
+import getters from './getters'
 Vue.use(Vuex);
+
 export default new Vuex.Store({
     modules: {
-        // xxx
+        formConfigs
     },
     getters
 })

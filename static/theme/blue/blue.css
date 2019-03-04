@@ -1,4 +1,7 @@
 /* 外层部分 */
+a,div,p,span,h1,h2,h3,h4,h5,h6,ul,li,ol,table,tr,td,input,textarea,button {
+    color: #fff;
+}
 ::-webkit-scrollbar-thumb,.scrollbar div::-webkit-scrollbar-thumb {
   border-radius: 10px;
   box-shadow: initial;
@@ -13,7 +16,9 @@
 #index-layout .el-header.top .infos {
   color: #9efcff;
 }
-
+#index-layout .el-header.top .infos .users > span {
+    color: #9efcff;
+}
 #index-layout .el-header.top .infos .users .icon-user {
   color: #fff;
 }
@@ -24,7 +29,7 @@
 }
 
 #index-layout .el-container.bottom .el-aside {
-  background: url("/static/theme/blue/imgs/left-bg.png") no-repeat;
+  background-color: rgba(18, 57, 154, 0.8);
   background-size: 100% 100%;
 }
 
@@ -177,7 +182,7 @@
 .themeSelect.el-select-dropdown li {
   color: #fff;
 }
-.themeSelect.el-select-dropdown li.el-select-dropdown__item.selected {
+.themeSelect.el-select-dropdown li.el-select-dropdown__item.selected span{
   color: #fff000;
 }
 .themeSelect.el-select-dropdown .el-select-dropdown__item {
