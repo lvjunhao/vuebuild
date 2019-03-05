@@ -32,7 +32,7 @@ export const formComponents = [
     // },
     {
         type: 'input',
-        name: '单行文本',
+        name: '输入框',
         options: {
             defaultValue: '',
             required: false,
@@ -43,7 +43,7 @@ export const formComponents = [
     },
     {
         type: 'textarea',
-        name: '多行文本',
+        name: '文本域',
         options: {
             defaultValue: '',
             required: false,
@@ -67,7 +67,7 @@ export const formComponents = [
     },
     {
         type: 'radio',
-        name: '单选框组',
+        name: '单选按钮',
         options: {
             inline: false,
             defaultValue: '',
@@ -98,7 +98,7 @@ export const formComponents = [
     },
     {
         type: 'checkbox',
-        name: '多选框组',
+        name: '多选按钮',
         options: {
             inline: false,
             defaultValue: [],

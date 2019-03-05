@@ -164,6 +164,11 @@ export default {
                             id:'1-3',
                             authName:'表单配置demo',
                             path:'/test/setting1'
+                        },
+                        {
+                            id:'1-4',
+                            authName:'已配置页面',
+                            path:'/test/render'
                         }
                     ]
                 },

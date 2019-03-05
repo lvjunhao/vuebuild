@@ -29,6 +29,7 @@
                 <el-button-group style='float:right'>
                     <el-button type="primary" icon="el-icon-view" size="mini" @click="handlePreview">预览页面</el-button>
                     <el-button type="primary" icon="el-icon-tickets" size="mini" @click="handleGenerateJson">生成JSON</el-button>
+                    <el-button type="primary" icon="el-icon-check" size="mini" @click="hanleSaveLayout">保存布局</el-button>
                 </el-button-group>
             </div>
             <layout-view :datas="widgetForm" :select.sync="widgetFormSelect"></layout-view>
@@ -68,6 +69,7 @@ export default {
     },
     data () {
         return {
+            isrefresh:false, // 刷新路由
             previewVisible: false,
             widgetFormSelect: null,
             widgetModels: {},
@@ -126,6 +128,24 @@ export default {
             this.jsonVisible = true
             this.jsonTemplate = this.widgetForm
         },
+        // 保存布局
+        hanleSaveLayout () {
+            this.$prompt("请输入页面名称","提示",{
+                confirmButtonText:'确定',
+                cancelButtonText:'取消'
+            }).then(({value}) => {
+                this.$store.dispatch('setconfiglist',this.widgetForm.list);
+                this.$message({
+                    type:'success',
+                    message:'你保存的页面名称为 : ' + value
+                });
+            }).catch(() => {
+                this.$message({
+                    type:'info',
+                    message:'取消操作'
+                });
+            });
+        }
     }
 }
 </script>

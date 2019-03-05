@@ -94,8 +94,30 @@ table {
 .el-menu {
     border-right: none;
 }
-
+.blackbord {
+    position: relative;
+}
+.blackbord:after {
+    content:"";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.active.blackbord:after {
+    border-radius: 4px;/*no*/
+    background-color: rgba(230, 230, 177, 0.59);
+}
+.module-view.ghost {
+    background-color: rgba(203, 144, 230, 0.6);
+}
 /* 防止element-ui的样式字体颜色被全局污染 */
-[class^='el'] span,label[class^='el'],i[class^='el'] {
+[class^='el'] > span,label[class^='el'],i[class^='el'] {
     color: unset;
+}
+.el-message-box__message p {
+    color: #333;
 }

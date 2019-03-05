@@ -9,72 +9,74 @@
 </template>
 
 <script>
-import renderFormItem from '~/layouts/renderFormItem'
+import renderFormItem from "~/layouts/renderFormItem";
 
 export default {
-  components: {
-    renderFormItem
+    components: {
+        renderFormItem
   },
-  props: ['data', 'value'],
-  data () {
+  props: ["data", "value"],
+  data() {
     return {
-      models: {},
-      rules: {}
-    }
+        models: {},
+        rules: {}
+    };
   },
-  created () {
-    this.generateModle(this.data.list)
+  created() {
+    this.generateModle(this.data.list);
   },
   methods: {
-    generateModle (genList) {
-      for (let i = 0; i < genList.length; i++) {
-        if (genList[i].type === 'grid') {
-          genList[i].columns.forEach(item => {
-            this.generateModle(item.list)
-          })
-        } else {
-          if (Object.keys(this.value).indexOf(genList[i].model) >= 0) {
-            this.models[genList[i].model] = this.value[genList[i].model]
-          } else {
-            if (genList[i].type === 'blank') {
-              this.models[genList[i].model] = genList[i].options.defaultType === 'String' ? '' : (genList[i].options.defaultType === 'Object' ? {} : [])
+    generateModle(genList) {
+        for (let i = 0; i < genList.length; i++) {
+            if (genList[i].type === "grid") {
+            genList[i].columns.forEach(item => {
+                this.generateModle(item.list);
+            });
             } else {
-              this.models[genList[i].model] = genList[i].options.defaultValue
+            if (Object.keys(this.value).indexOf(genList[i].model) >= 0) {
+                this.models[genList[i].model] = this.value[genList[i].model];
+            } else {
+                if (genList[i].type === "blank") {
+                this.models[genList[i].model] =
+                    genList[i].options.defaultType === "String"
+                    ? ""
+                    : genList[i].options.defaultType === "Object" ? {} : [];
+                } else {
+                this.models[genList[i].model] = genList[i].options.defaultValue;
+                }
             }
-            
-          }
-          
-          if (this.rules[genList[i].model]) {
-            this.rules[genList[i].model] = [...this.rules[genList[i].model], ...genList[i].rules]
-          } else {
-            this.rules[genList[i].model] = [...genList[i].rules]
-          }
-          
+
+            if (this.rules[genList[i].model]) {
+                this.rules[genList[i].model] = [
+                ...this.rules[genList[i].model],
+                ...genList[i].rules
+                ];
+            } else {
+                this.rules[genList[i].model] = [...genList[i].rules];
+            }
+            }
         }
-      }
     },
-    getData () {
+    getData() {
       return new Promise((resolve, reject) => {
         this.$refs.generateForm.validate(valid => {
-          if (valid) {
-            resolve(this.models)
-          } else {
-            reject(new Error('表单数据校验失败').message)
-          }
-        })
-      })
+            if (valid) {
+                resolve(this.models);
+            } else {
+                reject(new Error("表单数据校验失败").message);
+            }
+        });
+      });
     },
-    refresh () {
-      
-    }
+    refresh() {}
   },
   watch: {
     value: {
-      deep: true,
-      handler (val) {
-        this.models = {...this.models, ...val}
-      }
+        deep: true,
+        handler(val) {
+            this.models = { ...this.models, ...val };
+        }
     }
   }
-}
+};
 </script>

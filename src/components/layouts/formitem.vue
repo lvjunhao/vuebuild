@@ -1,5 +1,5 @@
 <template>
-  <el-form-item class="widget-view "
+  <el-form-item class="module-view blackbord"
       v-if="element && element.key" 
       :class="{active: selectWidget.key == element.key, 'is_req': element.options.required}"
       :label="element.name"
@@ -236,8 +236,9 @@ export default {
         position: absolute;
         top: 0;
         right: 0;
+        z-index:2;
         > span i {
-            color: #a5b6cc;
+            color: #fff;
             font-size: 16px; /*no*/
             margin:0 2px;
             transition: color .2s linear;

@@ -4,6 +4,7 @@ import mainPage from '@/views/index.vue'
 import table from '@/views/test/Table.vue'
 import setting1 from '@/views/test/setting1.vue'
 import layout from '@/views/test/layout.vue'
+import render from '@/views/test/render.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
             path:'test/layout',
             name:'layout',
             component:layout
+        },
+        {
+            path:'test/render',
+            name:'render',
+            component:render
         }
       ]
     }
