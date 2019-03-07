@@ -1,5 +1,5 @@
 <template>
-    <div id='index-layout'>
+    <div id='index-layout' class='indexlayout'>
         <el-container class='layout-container'>
             <!-- 顶部 -->
             <el-header class='top' :class='{ active:fullscreen }'>
@@ -39,7 +39,7 @@
             </el-header>
             <el-container class='bottom'>
                 <!-- 侧边栏 -->
-                <el-aside :class ="{ active: lineActive }">
+                <el-aside :class ="{ active: lineActive }" id='mainSide'>
                     <!-- 菜单上方控制选项 -->
                     <div class="work">
                         <span class='iconfont icon-diannao'></span>
@@ -49,10 +49,10 @@
                     <el-tabs v-model="activeTag" @click='tagChange' class='scrollbar'>
                         <el-tab-pane label="我的定制" name='first'>
                             <!-- 侧边栏菜单 -->
-                            <el-menu router unique-opened @open="handleSelect(currentMenus)">
-                                <el-submenu v-for='item in menusList' :key='item.id' :index='item.path' :class='{ active:menus.first }' @click='handle'>
+                            <el-menu router unique-opened @select="handleSelect(currentMenus)" id='siderBar'>
+                                <el-submenu v-for='item in menusList' :key='item.id' :index='item.path' :class='{ active:menus.first }' class='firstNode'>
                                     <template slot="title"><i class="el-icon-message"></i>{{ item.authName }}</template>
-                                    <el-menu-item-group v-for='itemLi in item.children' :key='itemLi.id' :class='{ submenu:itemLi.children }'>
+                                    <el-menu-item-group v-for='itemLi in item.children' :key='itemLi.id' :class='{ submenu:itemLi.children }' class='secondNode'>
                                         <el-menu-item :index='itemLi.path' :class='{ active:menus.second }'>{{ itemLi.authName }}</el-menu-item>
                                     </el-menu-item-group>
                                 </el-submenu>
@@ -74,11 +74,11 @@
                 <!-- 主内容区域 -->
                 <el-main :class ="{ active: lineActive }" id='page'>
                     <!-- 面包屑导航 -->
-                    <el-breadcrumb separator='>'>
+                    <!-- <el-breadcrumb separator='>'>
                         <el-breadcrumb-item :to='{path:"/"}' class='active'>数据维护</el-breadcrumb-item>
                         <el-breadcrumb-item :to='{path:"/"}'>文档展示</el-breadcrumb-item>
                         <el-breadcrumb-item :to='{path:"/"}'>数据展示</el-breadcrumb-item>
-                    </el-breadcrumb>
+                    </el-breadcrumb> -->
                     <!-- 根据侧边栏路由注入不同组件切换内容区域的页面 -->
                     <transition :name="animateType" mode="out-in">
                         <keep-alive>
@@ -95,9 +95,9 @@
 </template>
 
 <script>
-import loading from '~/common/loading.vue'
+import loading from '~/subtools/loading.vue'
 // import Table from '~/Table.vue'
-let echarts = require('echarts')
+// let echarts = require('echarts')
 export default {
     components:{
         'sj-loading': loading,
@@ -108,7 +108,7 @@ export default {
             // 页面切换动画种类
             animateType:'fade',
             // 页面切换动画集合
-            animateArray:['fade','slide-fade','bounce'],
+            animateArray:['fade','slide-fade','bounce','el-zoom-in-center'],
             // 全屏
             fullscreen:false,
             // 主题框选择是否弹出
@@ -140,7 +140,7 @@ export default {
                 {value:'科幻青',url:'static/theme/cyan/cyan.css'}
             ],
             // 记录选中的菜单项
-            currentMenus:{'a':'11213'},
+            currentMenus:{'path':'table'},
             // loading动画
             loading:false,
             // 左侧菜单权限
@@ -148,27 +148,27 @@ export default {
                 {
                     id:'1',
                     authName:'测试功能demo',
-                    path:'/',
+                    path:'/test',
                     children:[
                         {
                             id:'1-1',
                             authName:'表格操作',
-                            path:'table'
+                            path:'/test/table'
                         },
                         {
                             id:'1-2',
-                            authName:'表单自动化布局配置1',
-                            path:'setting'
+                            authName:'表单可视化配置',
+                            path:'/test/layout'
                         },
                         {
                             id:'1-3',
-                            authName:'表单自动化布局配置2',
-                            path:'formSetting'
+                            authName:'表单配置demo',
+                            path:'/test/setting1'
                         },
                         {
                             id:'1-4',
-                            authName:'选项4',
-                            path:'1-4',
+                            authName:'已配置页面',
+                            path:'/test/render'
                         }
                     ]
                 },
@@ -249,10 +249,7 @@ export default {
             localStorage.setItem('themeVal',v.url);
         },
         handleSelect (v,key,keypath) {
-            console.log(event)
-        },
-        handle () {
-            alert('1')
+            // console.log(v,key)
         },
         // 选取数组里随机一项 参数1为第一个可能的值 参数2为数组的最大索引值
         getRoundForm (first,sum) {

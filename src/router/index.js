@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import layout from '@/views/index.vue'
-import table from '@/components/tablelist/Table.vue'
-import setting from '@/components/formaking/setting.vue'
-import formSetting from '@/components/formaking/formsetting.vue'
+import mainPage from '@/views/index.vue'
+import table from '@/views/test/Table.vue'
+import setting1 from '@/views/test/setting1.vue'
+import layout from '@/views/test/layout.vue'
+import render from '@/views/test/render.vue'
 
 Vue.use(Router)
 
@@ -11,24 +12,30 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'layout',
-      component: layout,
-      redirect:'/table',
+      name: 'mainPage',
+      component: mainPage,
+    //   redirect:'/test/table',
       children:[
+          // 测试页面
         {
-          path:'/table',
-          name:'table',
-          component:table
+            path:'test/table',
+            name:'table',
+            component:table
         },
         {
-          path:'/setting',
-          name:'setting',
-          component:setting
+            path:'test/setting1',
+            name:'setting1',
+            component:setting1
         },
         {
-          path:'/formSetting',
-          name:'formSetting',
-          component:formSetting
+            path:'test/layout',
+            name:'layout',
+            component:layout
+        },
+        {
+            path:'test/render',
+            name:'render',
+            component:render
         }
       ]
     }

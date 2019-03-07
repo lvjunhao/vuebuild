@@ -1,3 +1,4 @@
 export default {
-    aa: state => state.xx.vv
+    formlayouts: state => state.formConfigs.formDatas,
+    thisSelect: state => state.currentItem.currentSelect
 }

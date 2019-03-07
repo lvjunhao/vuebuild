@@ -36,3 +36,20 @@
         transform: scale(1);
     }
 }
+
+.flip-list-move {
+    transition:transform .5s;
+}
+.no-move {
+    transition: transform 0s;
+}
+.ghost {
+    opacity: .5;
+    background-color: #c8ebfb;
+}
+.list-group-item {
+    cursor:move;
+}
+.list-group-item i {
+    cursor: pointer;
+}

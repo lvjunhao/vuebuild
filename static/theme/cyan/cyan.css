@@ -1,4 +1,7 @@
 /* 外层部分 */
+a,div,p,span,h1,h2,h3,h4,h5,h6,ul,li,ol,table,tr,td,input,textarea,button {
+    color: #333;
+}
 ::-webkit-scrollbar-thumb,.scrollbar div::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: initial;
@@ -13,7 +16,9 @@
   #index-layout .el-header.top .infos {
     color: #cfedff;
   }
-  
+  #index-layout .el-header.top .infos .users > span {
+    color: #cfedff;
+}
   #index-layout .el-header.top .infos .users .icon-user {
     color: #7db6e0;
   }
@@ -24,7 +29,7 @@
   }
   
   #index-layout .el-container.bottom .el-aside {
-    background: url("/static/theme/cyan/imgs/left-bg.png") no-repeat;
+    background-color: rgba(18, 57, 154, 0.8);
     background-size: 100% 100%;
   }
   
@@ -32,28 +37,32 @@
     background-color: rgba(51, 76, 181, .35);
   }
   
-  #index-layout .el-container.bottom .el-aside .el-menu .el-submenu__title {
+  #index-layout .el-container.bottom .el-aside .firstNode > .el-submenu__title {
     color: #fff;
   }
   
-  #index-layout .el-container.bottom .el-aside .el-menu .el-submenu__title:hover,
-  #index-layout .el-container.bottom .el-aside .el-menu .el-submenu__title:focus,
-  #index-layout .el-container.bottom .el-aside .el-menu .el-submenu.is-opened .el-submenu__title {
+  #index-layout .el-container.bottom .el-aside .firstNode > .el-submenu__title:hover,
+  #index-layout .el-container.bottom .el-aside .firstNode > .el-submenu__title:focus,
+  #index-layout .el-container.bottom .el-aside .firstNode.el-submenu.is-opened > .el-submenu__title {
     background: url("/static/theme/cyan/imgs/side-bg.png") no-repeat;
     background-size: 100% 100%;
   }
   
-  #index-layout .el-container.bottom .el-aside .el-menu .el-submenu__title i {
+  #index-layout .el-container.bottom .el-aside .firstNode > .el-submenu__title i {
     color: #7dfffd;
   }
   
-  #index-layout .el-container.bottom .el-aside .el-menu ul .el-menu-item {
+  #index-layout .el-container.bottom .el-aside .secondNode ul .el-menu-item,#index-layout .el-container.bottom .el-aside .secondNode > .el-submenu__title {
     color: #fff;
   }
   
-  #index-layout .el-container.bottom .el-aside .el-menu ul .el-menu-item:hover,
-  #index-layout .el-container.bottom .el-aside .el-menu ul .el-menu-item:focus,
-  #index-layout .el-container.bottom .el-aside .el-menu ul .el-menu-item.is-active{
+  #index-layout .el-container.bottom .el-aside .secondNode > .el-submenu__title:hover,
+  #index-layout .el-container.bottom .el-aside .secondNode > .el-submenu__title:focus,
+  #index-layout .el-container.bottom .el-aside .secondNode > .el-submenu__title:active,
+  #index-layout .el-container.bottom .el-aside .secondNode.is-opened > .el-submenu__title,
+  #index-layout .el-container.bottom .el-aside .secondNode ul .el-menu-item:hover,
+  #index-layout .el-container.bottom .el-aside .secondNode ul .el-menu-item:focus,
+  #index-layout .el-container.bottom .el-aside .secondNode ul .el-menu-item.is-active{
     color: #1480c7;
     background: url("/static/theme/cyan/imgs/second-menu-bg.png") no-repeat;
     background-size: 100% 100%;
@@ -165,7 +174,7 @@
     margin: 0 1px;
   }
   .layout-container .bottom .el-main > .table .el-pagination .btn-prev,.layout-container .bottom .el-main > .table .el-pagination .btn-next {
-    color: #c0c4cc;
+    color: #secondNode
   }
   #index-layout .layout-container .bottom .el-main > .table .el-pagination button:disabled,#index-layout .layout-container .bottom .el-main > .table .el-pagination button:disabled {
     color: transparent;
@@ -173,7 +182,7 @@
   .el-select-dropdown .el-pagination button {
     color: #409EFF;
   }
-  .el-select-dropdown li.el-select-dropdown__item.selected {
+  .el-select-dropdown li.el-select-dropdown__item.selected span {
     color: #1884ce;
   }
   .el-select-dropdown .el-select-dropdown__item {
