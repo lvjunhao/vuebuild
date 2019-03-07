@@ -3,7 +3,11 @@
         <!-- 左侧组件选项开始 -->
         <el-aside>
             <el-menu>
+<<<<<<< HEAD
                 <el-submenu v-for='item in menusList' :key='item.name' :index='item.name' class='firstNode'>
+=======
+                <el-submenu v-for='item in menusList' :key='item.name' :index='item.name'>
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
                     <template slot="title">{{ item.name }}</template>
                     <draggable :list='item.formComponents'
                             :options="{group:{ name:'form',pull:'clone',put:false},sort:false,ghostClass:'ghost'}"
@@ -13,7 +17,11 @@
                             :move="handleMove"
                         >
                         <transition-group type='transition' :name="'flip-list'">
+<<<<<<< HEAD
                             <el-menu-item-group v-for='itemLi in item.formComponents' :key='itemLi.type' class='secondNode'>
+=======
+                            <el-menu-item-group v-for='itemLi in item.formComponents' :key='itemLi.type'>
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
                                 <el-menu-item :index='itemLi.type' class='list-group-item'>{{ itemLi.name }}</el-menu-item>
                             </el-menu-item-group>
                         </transition-group>
@@ -32,6 +40,7 @@
                     <el-button type="primary" icon="el-icon-check" size="mini" @click="hanleSaveLayout">保存布局</el-button>
                 </el-button-group>
             </div>
+<<<<<<< HEAD
             <el-form class='layoutContainer'>
                 <draggable :list='widgetForm.list'
                     :options="{group:'form', ghostClass: 'ghost'}"
@@ -45,6 +54,9 @@
                     </transition-group>
                 </draggable>
             </el-form>
+=======
+            <layout-view :datas="widgetForm" :select.sync="widgetFormSelect"></layout-view>
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
         </el-main>
         <!-- 渲染视图区域结束 -->
 
@@ -68,6 +80,7 @@
 
 <script>
 import draggable from 'vuedraggable'
+<<<<<<< HEAD
 import renderView from '~/layouts/renderView.vue'
 import renderForm from '~/layouts/renderform.vue'
 import formItem from '~/layouts/formitem';
@@ -79,6 +92,18 @@ export default {
         renderView,
         renderForm,
         formItem
+=======
+import layoutView from '~/layouts/form.vue'
+import renderView from '~/layouts/renderView.vue'
+import renderForm from '~/layouts/renderform.vue'
+import { formComponents, gridComponents } from '@/utils/layoutConfig.js'
+export default {
+    components:{
+        draggable,
+        layoutView,
+        renderView,
+        renderForm
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
     },
     data () {
         return {
@@ -89,8 +114,11 @@ export default {
             jsonTemplate: '',
             jsonVisible: false,
             widgetForm: {
+<<<<<<< HEAD
                 id:'',
                 path:'',
+=======
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
                 list: []
             },
             formComponents,
@@ -101,7 +129,11 @@ export default {
                 },
                 {
                     name:'栅格布局',
+<<<<<<< HEAD
                     elementComponents
+=======
+                    gridComponents
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
                 }
             ]
         }
@@ -143,6 +175,7 @@ export default {
             this.jsonVisible = true
             this.jsonTemplate = this.widgetForm
         },
+<<<<<<< HEAD
         handleWidgetAdd (evt) {
             const newIndex = evt.newIndex
             //为拖拽到容器的元素添加唯一 key
@@ -213,6 +246,19 @@ export default {
                         message:'保存失败! 页面ID不能为空获含有非法字符!'
                     });
                 }
+=======
+        // 保存布局
+        hanleSaveLayout () {
+            this.$prompt("请输入页面名称","提示",{
+                confirmButtonText:'确定',
+                cancelButtonText:'取消'
+            }).then(({value}) => {
+                this.$store.dispatch('setconfiglist',this.widgetForm.list);
+                this.$message({
+                    type:'success',
+                    message:'你保存的页面名称为 : ' + value
+                });
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
             }).catch(() => {
                 this.$message({
                     type:'info',
@@ -254,8 +300,11 @@ export default {
             }
         }
     }
+<<<<<<< HEAD
     .layoutContainer > div > .transitionSpan{
         display: block;
         min-height: 150px;
     }
+=======
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
 </style>

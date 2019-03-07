@@ -50,7 +50,11 @@
                         <el-tab-pane label="我的定制" name='first'>
                             <!-- 侧边栏菜单 -->
                             <el-menu router unique-opened @select="handleSelect(currentMenus)" id='siderBar'>
+<<<<<<< HEAD
                                 <el-submenu v-for='item in menusList' :key='item.id' :index='item.path' :class='{ active:menus.first }' class='firstNode'>
+=======
+                                <el-submenu v-for='item in menusList' :key='item.id' :index='item.path' :class='{ active:menus.first }' @click='handle'>
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
                                     <template slot="title"><i class="el-icon-message"></i>{{ item.authName }}</template>
                                     <el-menu-item-group v-for='itemLi in item.children' :key='itemLi.id' :class='{ submenu:itemLi.children }' class='secondNode'>
                                         <el-menu-item :index='itemLi.path' :class='{ active:menus.second }'>{{ itemLi.authName }}</el-menu-item>
@@ -250,6 +254,12 @@ export default {
         },
         handleSelect (v,key,keypath) {
             // console.log(v,key)
+<<<<<<< HEAD
+=======
+        },
+        handle () {
+            alert('1')
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
         },
         // 选取数组里随机一项 参数1为第一个可能的值 参数2为数组的最大索引值
         getRoundForm (first,sum) {

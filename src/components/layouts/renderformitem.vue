@@ -175,6 +175,10 @@ export default {
     models: {
       deep: true,
       handler (val) {
+<<<<<<< HEAD
+=======
+        console.log('--------')
+>>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
         this.dataModel = val[this.widget.model]
       }
     }
