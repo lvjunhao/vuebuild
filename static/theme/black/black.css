@@ -1,7 +1,4 @@
 /* 外层部分 */
-a,div,p,span,h1,h2,h3,h4,h5,h6,ul,li,ol,table,tr,td,label,input,textarea,button {
-    color: #fff;
-}
 ::-webkit-scrollbar-thumb,.scrollbar div::-webkit-scrollbar-thumb {
   border-radius: 10px;
   box-shadow: initial;

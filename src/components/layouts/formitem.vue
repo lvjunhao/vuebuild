@@ -159,25 +159,12 @@ export default {
       this.selectWidget = this.data.list[index]
     },
     handleWidgetDelete (index) {
-        // 判断当前操作元素
-        if (this.data.list.length - 1 === index) {
-            if (index === 0) {
-                this.selectWidget = {}
-            } else {
-                this.selectWidget = this.data.list[index - 1]
-            }
-        } else {
-            this.selectWidget = this.data.list[index + 1]
-        }
-
         this.$confirm('此操作将删除当前元素,是否继续?','提示',{
             confimButtonText:'确定',
             cancelButtonText:'取消',
             type:'warning'
         }).then(() => {
-            this.$nextTick(() => {
-                this.data.list.splice(index, 1) // 执行删除操作
-            });
+            this.data.list.splice(index, 1) // 执行删除操作
             // 删除提示
             this.$message({
                 type:'warning',
@@ -215,7 +202,7 @@ export default {
       })
     },
     settingConfig (index) {
-
+        this.$emit('showDialog',true);
     }
   },
   watch: {

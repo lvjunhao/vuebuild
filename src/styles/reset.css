@@ -13,7 +13,7 @@ main, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
+    border: 0;
 	vertical-align: middle;
 }
 /* HTML5 display-role reset for older browsers */
@@ -109,24 +109,28 @@ table {
 }
 .active.blackbord:after {
     border-radius: 4px;/*no*/
-    background-color: rgba(230, 230, 177, 0.59);
+    border: 1px dashed rgba(230,230,177,0.59);
+    /* background-color: rgba(230, 230, 177, 0.59); */
 }
 .module-view.ghost {
     background-color: rgba(203, 144, 230, 0.6);
 }
 /* 防止element-ui的样式字体颜色被全局污染 */
-[class^='el'] > span,label[class^='el'],i[class^='el'] {
-    color: unset;
+.el-radio,.el-checkbox {
+    color: #fff;
+}
+.el-form-item__label {
+    color: #fff;
 }
 .el-message-box__message p {
     color: #333;
-<<<<<<< HEAD
 }
 .render .el-alert .el-alert__description {
     font-size: 16px;/*no*/
 }
 .render .el-alert__closebtn.is-customed {
     color: #9ca58c;
-=======
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
+}
+.el-input-number > span > i {
+    color: black;
 }

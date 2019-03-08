@@ -3,25 +3,13 @@
         <!-- 左侧组件选项开始 -->
         <el-aside>
             <el-menu>
-<<<<<<< HEAD
                 <el-submenu v-for='item in menusList' :key='item.name' :index='item.name' class='firstNode'>
-=======
-                <el-submenu v-for='item in menusList' :key='item.name' :index='item.name'>
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
                     <template slot="title">{{ item.name }}</template>
                     <draggable :list='item.formComponents'
                             :options="{group:{ name:'form',pull:'clone',put:false},sort:false,ghostClass:'ghost'}"
-                            @end="handleMoveEnd"
-                            @start="handleMoveStart"
-                            @clone="cloneNode"
-                            :move="handleMove"
                         >
                         <transition-group type='transition' :name="'flip-list'">
-<<<<<<< HEAD
                             <el-menu-item-group v-for='itemLi in item.formComponents' :key='itemLi.type' class='secondNode'>
-=======
-                            <el-menu-item-group v-for='itemLi in item.formComponents' :key='itemLi.type'>
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
                                 <el-menu-item :index='itemLi.type' class='list-group-item'>{{ itemLi.name }}</el-menu-item>
                             </el-menu-item-group>
                         </transition-group>
@@ -40,25 +28,33 @@
                     <el-button type="primary" icon="el-icon-check" size="mini" @click="hanleSaveLayout">保存布局</el-button>
                 </el-button-group>
             </div>
-<<<<<<< HEAD
-            <el-form class='layoutContainer'>
+            <el-form class='layoutContainer' label-width='90px'>
                 <draggable :list='widgetForm.list'
                     :options="{group:'form', ghostClass: 'ghost'}"
-                    @end="handleMoveEnd"
                     @add="handleWidgetAdd"
                 >
                     <transition-group type='transition' :name="'flip-list'" class='transitionSpan'>
                         <template v-for="(item, index) in widgetForm.list">
-                            <form-item v-if="item && item.key"  :key="item.key" :element="item" :select="widgetFormSelect" :index="index" :data="widgetForm"></form-item>
+                            <form-item v-if="item && item.key"  :key="item.key" :element="item" :select.sync="widgetFormSelect" :index="index" :data="widgetForm" @showDialog='hanleShowDialog'></form-item>
                         </template>
                     </transition-group>
                 </draggable>
             </el-form>
-=======
-            <layout-view :datas="widgetForm" :select.sync="widgetFormSelect"></layout-view>
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
         </el-main>
         <!-- 渲染视图区域结束 -->
+
+        <!-- 参数配置开始 -->
+        <el-dialog title='配置属性' :visible.sync='configAttrDialog'>
+            <el-form :model='widgetFormSelect' v-if='widgetFormSelect.options' label-width='90px'>
+                <el-form-item label='提示信息' v-if='widgetFormSelect.options.placeholder'>
+                    <el-input v-model='widgetFormSelect.options.placeholder' autocomplete='off'></el-input>
+                </el-form-item>
+                <el-form-item label='默认值' v-if='widgetFormSelect.options.defaultValue'>
+                    <el-input v-model='widgetFormSelect.options.defaultValue' autocomplete='off'></el-input>
+                </el-form-item>
+            </el-form>
+        </el-dialog>
+        <!-- 参数配置结束 -->
 
         <!-- 预览页面开始 -->
         <render-view :visible="previewVisible" @on-close="previewVisible = false" ref="widgetPreview" @on-submit="handleTest" width="1000px">
@@ -80,7 +76,6 @@
 
 <script>
 import draggable from 'vuedraggable'
-<<<<<<< HEAD
 import renderView from '~/layouts/renderView.vue'
 import renderForm from '~/layouts/renderform.vue'
 import formItem from '~/layouts/formitem';
@@ -92,33 +87,21 @@ export default {
         renderView,
         renderForm,
         formItem
-=======
-import layoutView from '~/layouts/form.vue'
-import renderView from '~/layouts/renderView.vue'
-import renderForm from '~/layouts/renderform.vue'
-import { formComponents, gridComponents } from '@/utils/layoutConfig.js'
-export default {
-    components:{
-        draggable,
-        layoutView,
-        renderView,
-        renderForm
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
     },
     data () {
         return {
+            configAttrDialog:false,
             isrefresh:false, // 刷新路由
             previewVisible: false,
-            widgetFormSelect: null,
+            widgetFormSelect: {
+                options:{}
+            },
             widgetModels: {},
             jsonTemplate: '',
             jsonVisible: false,
             widgetForm: {
-<<<<<<< HEAD
                 id:'',
                 path:'',
-=======
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
                 list: []
             },
             formComponents,
@@ -129,27 +112,19 @@ export default {
                 },
                 {
                     name:'栅格布局',
-<<<<<<< HEAD
                     elementComponents
-=======
-                    gridComponents
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
                 }
             ]
         }
     },
+    watch:{
+        widgetFormSelect (newVal, oldVal) {
+            console.log(newVal, oldVal);
+        }
+    },
     methods:{
-        handleMoveStart () {
-            
-        },
-        handleMoveEnd () {
-            
-        },
-        cloneNode () {
-            
-        },
-        handleMove () {
-
+        hanleShowDialog (v) {
+            this.configAttrDialog = v;
         },
         copyFun () {
             var copyjson = document.getElementById('jsoneditor');
@@ -175,7 +150,6 @@ export default {
             this.jsonVisible = true
             this.jsonTemplate = this.widgetForm
         },
-<<<<<<< HEAD
         handleWidgetAdd (evt) {
             const newIndex = evt.newIndex
             //为拖拽到容器的元素添加唯一 key
@@ -246,19 +220,6 @@ export default {
                         message:'保存失败! 页面ID不能为空获含有非法字符!'
                     });
                 }
-=======
-        // 保存布局
-        hanleSaveLayout () {
-            this.$prompt("请输入页面名称","提示",{
-                confirmButtonText:'确定',
-                cancelButtonText:'取消'
-            }).then(({value}) => {
-                this.$store.dispatch('setconfiglist',this.widgetForm.list);
-                this.$message({
-                    type:'success',
-                    message:'你保存的页面名称为 : ' + value
-                });
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
             }).catch(() => {
                 this.$message({
                     type:'info',
@@ -300,11 +261,8 @@ export default {
             }
         }
     }
-<<<<<<< HEAD
     .layoutContainer > div > .transitionSpan{
         display: block;
         min-height: 150px;
     }
-=======
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
 </style>

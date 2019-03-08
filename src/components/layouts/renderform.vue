@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form ref="generateForm" :model="models" :rules="rules">
+    <el-form ref="generateForm" :model="models" :rules="rules" label-width='90px'>
       <template v-for="item in data.list">
           <render-form-item :key="item.key" :models.sync="models" :rules="rules" :widget="item"></render-form-item>
       </template>

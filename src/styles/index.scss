@@ -361,3 +361,43 @@
     display: block;
     padding:1px 0;
 }
+.el-dialog {
+    background: rgba(72, 97, 195, 0.95);
+    .el-dialog__headerbtn .el-dialog__close {
+        color: #fff;
+    }
+    [class^='el'] span,[class^='el'] label {
+        color: #fff;
+    }
+  }
+  .el-dialog__footer{
+    margin: 0 20px;
+    // border-top: 1px dashed #ccc;
+    padding: 15px 0 16px;
+    text-align: center;
+    position: relative;
+
+    .dialog-footer{
+      display: block;
+
+      .circular{
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+        width: 24px;
+        height: 24px;
+      }
+
+      .el-loading-text{
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .el-loading-spinner{
+        margin-top: -12px;
+      }
+    }
+}
+.el-form-item__label {
+    padding:0 8px;
+}

@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <el-container class="container render">
         <i class='el-icon-d-caret' @click='collapsePanel'></i>
         <transition name='el-zoom-in-center'>
@@ -25,11 +24,6 @@
             </el-alert>
         </el-main>
     </el-container>
-=======
-    <div class="container">
-        <render-form :data="widgetForm" :value="widgetModels" ref="generateForm"></render-form>
-    </div>
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
 </template>
 
 <script>
@@ -40,20 +34,15 @@ export default {
     },
     data () {
         return {
-<<<<<<< HEAD
             isactive:'',
             collapse:true,
             currentItem:"",
             currentForm:null,
-=======
-            widgetForm:this.$store.getters.formlayouts,
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
             widgetModels:{}
         }
     },
     mounted () {
 
-<<<<<<< HEAD
     },
     methods:{
         handleSelect (v,index) {
@@ -63,15 +52,12 @@ export default {
         collapsePanel () {
             this.collapse = !this.collapse;
         }
-=======
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
     }
 }
 </script>
 
 <style scoped lang='scss'>
     .container {
-<<<<<<< HEAD
         padding: 0;
         position: relative;
         > i {
@@ -89,6 +75,7 @@ export default {
             max-width: 150px;
             box-shadow: 2px 2px 2px #666;
             > h1 {
+                color: #fff;
                 padding-top: 15px;
                 text-align: center;
                 font-size: 14px;/*no*/
@@ -103,6 +90,7 @@ export default {
                 // padding-left: 10%;
                 padding-right: 10%;
                 > li {
+                    color: #fff;
                     margin:4px 0;
                     padding:3px 0;
                     padding-left: 10%;
@@ -120,8 +108,5 @@ export default {
                 font-size: 16px;/*no*/
             }
         }
-=======
-        padding:25px;
->>>>>>> d1eba4dc99d027d145efe129062f743c2f726ff5
     }
 </style>
